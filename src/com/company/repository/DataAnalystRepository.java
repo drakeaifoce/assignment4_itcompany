@@ -1,9 +1,8 @@
 package com.company.repository;
 
 import com.company.data.interfaces.IDB;
-import com.company.enteties.DataAnalyst;
-import com.company.enteties.Developer;
 import com.company.repository.interfaces.IDataAnalystRepository;
+import com.company.enteties.DataAnalyst;
 
 import java.sql.*;
 import java.util.ArrayList;

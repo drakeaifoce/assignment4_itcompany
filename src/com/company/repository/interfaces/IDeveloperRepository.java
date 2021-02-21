@@ -1,5 +1,6 @@
 package com.company.repository.interfaces;
 
+import com.company.enteties.DataAnalyst;
 import com.company.enteties.Developer;
 
 import java.util.List;

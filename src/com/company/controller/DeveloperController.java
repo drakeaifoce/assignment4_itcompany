@@ -19,7 +19,7 @@ public class DeveloperController
 
         boolean created = developerRepository.addDeveloper(developer);
 
-        return (created ? "Developer was added!" : "Developer adding was failed");
+        return (created ? "Developer adding was failed" : "Developer was added!");
     }
 
     public Developer getDeveloper(int id) {
