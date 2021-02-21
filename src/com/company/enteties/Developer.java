@@ -12,21 +12,19 @@ public class Developer extends Worker {
         super(name, surname);
     }
 
-    public Developer(String name, String surname, int age, String degree, String gender, String email, int work_exp, String programming_lang, boolean middle, boolean senior) {
-        super(name, surname, age, degree, gender, email, work_exp);
+    public Developer(String name, String surname, int salary, int work_exp, String programming_lang, boolean middle, boolean senior) {
+        super(name, surname, salary, work_exp);
         this.programming_lang = programming_lang;
         this.middle = middle;
         this.senior = senior;
     }
 
-    public Developer(int id, String name, String surname, int age, String degree, String gender, String email, int work_exp, String programming_lang, boolean middle, boolean senior) {
-        super(id, name, surname, age, degree, gender, email, work_exp);
+    public Developer(int id, String name, String surname, int salary, int work_exp, String programming_lang, boolean middle, boolean senior) {
+        super(id, name, surname, salary, work_exp);
         this.programming_lang = programming_lang;
         this.middle = middle;
         this.senior = senior;
     }
-
-
 
     public String getProgramming_lang() {
         return programming_lang;
@@ -35,7 +33,6 @@ public class Developer extends Worker {
     public void setProgramming_lang(String programming_lang) {
         this.programming_lang = programming_lang;
     }
-
 
     public boolean isMiddle() {
         return middle;
@@ -59,11 +56,9 @@ public class Developer extends Worker {
                 "id=" + getId() +
                 ", name='" + getName() + '\'' +
                 ", surname='" + getSurname() + '\'' +
-                ", age=" + getAge() +
-                ", degree='" + getDegree() + '\'' +
-                ", gender='" + getGender() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                "programming_lang='" + programming_lang + '\'' +
+                ", salary=" + getSalary() + '\'' +
+                ", work_exp=" + getWork_exp() + '\'' +
+                ", programming_lang='" + programming_lang + '\'' +
                 ", middle=" + middle +
                 ", senior=" + senior +
                 '}';

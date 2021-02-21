@@ -20,19 +20,16 @@ public class DeveloperRepository implements IDeveloperRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO developers(name, surname, age, degree , gender, email, work_exp, programming_lang, middle, senior) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO developers(name, surname, salary, work_exp, programming_lang, middle, senior) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, developer.getName());
             st.setString(2, developer.getSurname());
-            st.setInt(3, developer.getAge());
-            st.setString(4, developer.getDegree());
-            st.setString(5, developer.getGender());
-            st.setString(6, developer.getEmail());
-            st.setInt(7, developer.getWork_exp());
-            st.setString(8, developer.getProgramming_lang());
-            st.setBoolean(9, developer.isMiddle());
-            st.setBoolean(10, developer.isSenior());
+            st.setInt(3, developer.getSalary());
+            st.setInt(4, developer.getWork_exp());
+            st.setString(5, developer.getProgramming_lang());
+            st.setBoolean(6, developer.isMiddle());
+            st.setBoolean(7, developer.isSenior());
 
 
             boolean executed = st.execute();
@@ -56,7 +53,7 @@ public class DeveloperRepository implements IDeveloperRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name, surname, age, degree , gender, email, work_exp, programming_lang, middle, senior FROM developers WHERE id=?";
+            String sql = "SELECT id,name, surname, salary, work_exp, programming_lang, middle, senior FROM developers WHERE id=?";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setInt(1, id);
@@ -66,10 +63,7 @@ public class DeveloperRepository implements IDeveloperRepository {
                 Developer developer = new Developer(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
-                        rs.getInt("age"),
-                        rs.getString("degree"),
-                        rs.getString("gender"),
-                        rs.getString("email"),
+                        rs.getInt("salary"),
                         rs.getInt("work_exp"),
                         rs.getString("programming_lang"),
                         rs.getBoolean("middle"),
@@ -96,7 +90,7 @@ public class DeveloperRepository implements IDeveloperRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name, surname, age, degree , gender, email, work_exp, programming_lang, middle, senior from developers";
+            String sql = "SELECT id,name, surname, salary, work_exp, programming_lang, middle, senior from developers";
             Statement st = con.createStatement();
 
             ResultSet rs = st.executeQuery(sql);
@@ -105,10 +99,7 @@ public class DeveloperRepository implements IDeveloperRepository {
                 Developer developer = new Developer(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
-                        rs.getInt("age"),
-                        rs.getString("degree"),
-                        rs.getString("gender"),
-                        rs.getString("email"),
+                        rs.getInt("salary"),
                         rs.getInt("work_exp"),
                         rs.getString("programming_lang"),
                         rs.getBoolean("middle"),

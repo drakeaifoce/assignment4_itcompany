@@ -4,10 +4,7 @@ public abstract class Worker {
     private int id;
     private String name;
     private String surname;
-    private int age;
-    private String degree;
-    private String gender;
-    private String email;
+    private int salary;
     private int work_exp;
 
     public Worker() {
@@ -18,24 +15,18 @@ public abstract class Worker {
         this.surname = surname;
     }
 
-    public Worker(String name, String surname, int age, String degree, String gender, String email, int work_exp) {
+    public Worker(String name, String surname, int salary, int work_exp) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
-        this.degree = degree;
-        this.gender = gender;
-        this.email = email;
+        this.salary = salary;
         this.work_exp = work_exp;
     }
 
-    public Worker(int id, String name, String surname, int age, String degree, String gender, String email, int work_exp) {
+    public Worker(int id, String name, String surname, int salary, int work_exp) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.age = age;
-        this.degree = degree;
-        this.gender = gender;
-        this.email = email;
+        this.salary = salary;
         this.work_exp = work_exp;
     }
 
@@ -63,36 +54,12 @@ public abstract class Worker {
         this.surname = surname;
     }
 
-    public int getAge() {
-        return age;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getDegree() {
-        return degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public int getWork_exp() {
@@ -108,10 +75,7 @@ public abstract class Worker {
         return "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", degree='" + degree + '\'' +
-                ", gender='" + gender + '\'' +
-                ", email='" + email + '\'' +
+                ", age=" + salary +
                 '}';
     }
 

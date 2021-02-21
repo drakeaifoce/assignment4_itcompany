@@ -13,9 +13,9 @@ public class DeveloperController
         this.developerRepository = developerRepository;
     }
 
-    public String addDeveloper(String name, String surname, int age, String degree, String gender, String email, int work_exp, String programming_lang,  boolean middle, boolean senior)
+    public String addDeveloper(String name, String surname, int salary, int work_exp, String programming_lang,  boolean middle, boolean senior)
     {
-        Developer developer = new Developer(name, surname, age, degree, gender, email, work_exp, programming_lang , middle, senior);
+        Developer developer = new Developer(name, surname, salary, work_exp, programming_lang , middle, senior);
 
         boolean created = developerRepository.addDeveloper(developer);
 

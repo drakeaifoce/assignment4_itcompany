@@ -66,14 +66,8 @@ public class FrontEnd {
         String name = scanner.next();
         System.out.println("Enter surname");
         String surname = scanner.next();
-        System.out.println("Enter age");
-        int age = scanner.nextInt();
-        System.out.println("Enter degree");
-        String degree = scanner.next();
-        System.out.println("Enter gender");
-        String gender = scanner.next();
-        System.out.println("Enter email");
-        String email = scanner.next();
+        System.out.println("Enter salary");
+        int salary = scanner.nextInt();
         System.out.println("Enter working experience");
         int work_exp = scanner.nextInt();
         System.out.println("Enter developers' main programming language");
@@ -92,7 +86,7 @@ public class FrontEnd {
             }
         }
 
-        String response = controller.addDeveloper(name, surname, age, degree, gender, email, work_exp, programming_lang, middle, senior);
+        String response = controller.addDeveloper(name, surname, salary, work_exp, programming_lang, middle, senior);
         System.out.println(response);
     }
 }
