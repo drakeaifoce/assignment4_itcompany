@@ -47,7 +47,7 @@ public class FrontEnd {
             System.out.println();
 
             try {
-                System.out.print("Enter option (1-6): ");
+                System.out.print("Enter option (0-11): ");
                 int option = scanner.nextInt();
                 if (option == 3) {
                     getAllDevelopersMenu();
@@ -60,7 +60,13 @@ public class FrontEnd {
                 } else if (option == 7) {
                     getDataAnalystByIdMenu();
                 } else if (option == 8) {
-                    addDataAnalystMenu();
+                    addManagerMenu();
+                }else if (option == 9) {
+                    getAllManagersMenu();
+                } else if (option == 10) {
+                    getDataAnalystByIdMenu();
+                } else if (option == 11) {
+                    addManagerMenu();
                 }
                 else {
                     break;
