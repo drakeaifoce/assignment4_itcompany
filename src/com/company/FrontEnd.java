@@ -2,12 +2,15 @@ package com.company;
 
 import com.company.controller.DataAnalystController;
 import com.company.controller.DeveloperController;
+import com.company.controller.ProjectManagerController;
 import com.company.enteties.DataAnalyst;
 import com.company.enteties.Developer;
+import com.company.enteties.ProjectManager;
 import com.company.repository.DataAnalystRepository;
 import com.company.repository.interfaces.IDeveloperRepository;
 import com.company.repository.interfaces.IDataAnalystRepository;
 import com.company.Main;
+import com.company.repository.interfaces.IProjectManagerRepository;
 
 
 import java.util.Scanner;
@@ -15,11 +18,13 @@ import java.util.Scanner;
 public class FrontEnd {
     private final DeveloperController developerController;
     private final DataAnalystController dataAnalystController;
+    private final ProjectManagerController projectManagerController;
     private final Scanner scanner;
 
-    public FrontEnd(IDeveloperRepository developerRepository, IDataAnalystRepository dataAnalystRepository) {
+    public FrontEnd(IDeveloperRepository developerRepository, IDataAnalystRepository dataAnalystRepository, IProjectManagerRepository projectManagerRepository) {
         developerController = new DeveloperController(developerRepository);
         dataAnalystController = new DataAnalystController(dataAnalystRepository);
+        projectManagerController = new ProjectManagerController(projectManagerRepository);
         scanner = new Scanner(System.in);
     }
 
@@ -28,12 +33,15 @@ public class FrontEnd {
             System.out.println();
             System.out.println("Welcome to the Darkhans' IT Company");
             System.out.println("Select option:");
-            System.out.println("1. Get all developers");
-            System.out.println("2. Get developer by id");
-            System.out.println("3. Add developer to the database");
-            System.out.println("4. Get all data analysts");
-            System.out.println("5. Get data analyst by id");
-            System.out.println("6. Add data analyst to the database");
+            System.out.println("3. Get all developers");
+            System.out.println("4. Get developer by id");
+            System.out.println("5. Add developer to the database");
+            System.out.println("6. Get all data analysts");
+            System.out.println("7. Get data analyst by id");
+            System.out.println("8. Add data analyst to the database");
+            System.out.println("9. Get all project managers");
+            System.out.println("10. Get project manager by id");
+            System.out.println("11. Add project manager to the database");
 
             System.out.println("0. Exit");
             System.out.println();
@@ -41,17 +49,17 @@ public class FrontEnd {
             try {
                 System.out.print("Enter option (1-6): ");
                 int option = scanner.nextInt();
-                if (option == 1) {
+                if (option == 3) {
                     getAllDevelopersMenu();
-                } else if (option == 2) {
-                    getDeveloperByIdMenu();
-                } else if (option == 3) {
-                    addDeveloperMenu();
                 } else if (option == 4) {
-                    getAllDataAnalystsMenu();
+                    getDeveloperByIdMenu();
                 } else if (option == 5) {
-                    getDataAnalystByIdMenu();
+                    addDeveloperMenu();
                 } else if (option == 6) {
+                    getAllDataAnalystsMenu();
+                } else if (option == 7) {
+                    getDataAnalystByIdMenu();
+                } else if (option == 8) {
                     addDataAnalystMenu();
                 }
                 else {
@@ -134,6 +142,33 @@ public class FrontEnd {
         String skill = scanner.next();
 
         String response = dataAnalystController.addDataAnalyst(name, surname, salary, work_exp, skill);
+        System.out.println(response);
+    }
+
+    public void getAllManagersMenu() {
+        String response = projectManagerController.getAllManagers();
+        System.out.println(response);
+    }
+
+    public void getManagerByIdMenu() {
+        System.out.println("Please enter id");
+
+        int id = scanner.nextInt();
+        ProjectManager projectManager = projectManagerController.getManager(id);
+        System.out.println((projectManager == null ? "Data Analyst was not found!" : projectManager.toString()));
+    }
+
+    public void addManagerMenu() {
+        System.out.println("Enter name");
+        String name = scanner.next();
+        System.out.println("Enter surname");
+        String surname = scanner.next();
+        System.out.println("Enter salary");
+        int salary = scanner.nextInt();
+        System.out.println("Enter working experience");
+        int work_exp = scanner.nextInt();
+
+        String response = projectManagerController.addProjectManager(name, surname, salary, work_exp);
         System.out.println(response);
     }
 }
